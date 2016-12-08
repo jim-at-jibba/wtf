@@ -1,0 +1,76 @@
+<head>
+  <title>What the Fuck is This</title>
+</head>
+
+<body>
+<div class="container">
+<div class="row">
+  <div class="col-lg-6">
+    <h1>What the Fuck is this</h1>
+    <p>Ever want to know what the fuck something is?</p>
+    <p>Microsoft's Computer Vision API will try to tell you what's in the image you put in here. Sometimes it's awesome. Sometime's it's fucking stupid.</p>
+  </div>
+</div>
+  <div class="row">
+    <div class="col-lg-6 col-md-6">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2>Put a fucking image link in here:</h2>
+          <form class="form-group">
+            <input class="form-control url-inputs" value="https://regmedia.co.uk/2016/08/08/shutterstock_cat_peek.jpg">
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <button class="btn btn-lg btn-success">Click this fucking button</button>
+        </div>
+      </div>
+      <div class="row spacer">
+        <div class="col-lg-6">
+          <h4>Most accurate description:</h4>
+          {{#with topConfidence}}
+            <img src="{{image}}" class="feat-result">
+            <h5>{{description}} <br><small>{{formatConfidence confidence}}% confidence</small></h5>
+            {{/with}}
+        </div>
+        <div class="col-lg-6">
+          <h4>Least accurate description:</h4>
+          {{#with leastConfidence}}
+            <img src="{{image}}" class="feat-result">
+            <h5>{{description}} <br><small>{{formatConfidence confidence}}% confidence</small></h5>
+          {{/with}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <h4>Murray Watch:</h4>
+          {{#each famousPeople}}
+            <img src="{{image}}" class="feat-result">
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-lg-offset-2 col-md-4 stream">
+      <div class="row">
+        <h1>The fucking stream</h1>
+        <div class="col-lg-12">
+          {{#each results}}
+            <img src="{{image}}" class="image-result">
+            <h2>{{description}} <br><small>{{formatConfidence confidence}}% confidence</small></h2>
+            <p>
+            {{#each tags}}
+              <small>
+                {{.}},&nbsp;
+              </small>
+              {{/each}}
+            </p>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+</body>

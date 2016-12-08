@@ -1,0 +1,1 @@
+export var Stdout = new Mongo.Collection('stdout');
